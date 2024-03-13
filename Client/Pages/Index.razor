@@ -5,3 +5,15 @@
 <h1>Hello, world!</h1>
 
 Welcome to your new app.
+API Result: @result
+
+@code {
+    string result;
+    int times;
+    void click() => times++;
+    protected override async Task OnInitializedAsync()
+    {
+        var httpClient= new HttpClient();
+        result = await httpClient.GetStringAsync("/api/httptrigger2?name=dusty");
+    }
+}
